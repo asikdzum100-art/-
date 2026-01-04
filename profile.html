@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Профиль</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Профиль</div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Главная</a>
+    <a href="progress.html">Прогресс</a>
+    <button onclick="logout()">Выйти</button>
+  </div>
+</nav>
+
+<main class="container">
+  <p><strong>Имя:</strong> <span id="name"></span></p>
+  <p><strong>Email:</strong> <span id="email"></span></p>
+</main>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "PASTE_HERE",
+    authDomain: "PASTE_HERE",
+    projectId: "PASTE_HERE",
+    appId: "PASTE_HERE"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="auth.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>
