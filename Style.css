@@ -1,108 +1,179 @@
+:root {
+  --green: #58cc02;
+  --green-dark: #46a302;
+  --yellow: #ffd500;
+  --bg: #f7f7f7;
+  --card: #ffffff;
+  --text: #3c3c3c;
+  --shadow: 0 6px 0 rgba(0,0,0,0.08);
+}
+
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f6f7fb;
-  color: #333;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* Навигация */
+/* NAV */
 nav {
-  background: #58cc02;
-  color: #fff;
-  padding: 15px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #eee;
+  z-index: 10;
 }
 
-nav .logo {
+.logo {
+  font-size: 20px;
   font-weight: bold;
-  font-size: 18px;
+  color: var(--green);
 }
 
 .nav-links a,
 .nav-links button {
-  margin-left: 10px;
-  color: white;
-  text-decoration: none;
+  margin-left: 12px;
   background: none;
   border: none;
+  color: var(--green);
+  font-weight: bold;
   cursor: pointer;
-  font-size: 14px;
 }
 
-/* Контейнер */
+/* CONTAINER */
 .container {
-  max-width: 900px;
+  max-width: 700px;
   margin: 30px auto;
   padding: 0 15px;
 }
 
-/* Логин */
+/* LOGIN */
 #login-section {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 100px;
+}
+
+#login-section h1 {
+  font-size: 34px;
 }
 
 .google-btn {
-  padding: 15px 25px;
-  font-size: 16px;
-  background: #4285f4;
+  margin-top: 30px;
+  background: var(--green);
   color: white;
+  padding: 18px 28px;
+  border-radius: 16px;
+  font-size: 18px;
   border: none;
-  border-radius: 6px;
+  box-shadow: var(--shadow);
   cursor: pointer;
+  transition: transform 0.1s ease;
 }
 
-/* Карточки уроков */
+.google-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* PATH (DUOLINGO STYLE) */
 .lesson-card {
-  background: white;
+  background: var(--card);
+  border-radius: 18px;
   padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: pop 0.4s ease;
+}
+
+.lesson-card h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.lesson-card p {
+  margin: 6px 0 14px;
+  opacity: 0.8;
 }
 
 .lesson-card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: #ffd500;
-  color: #000;
+  background: var(--green);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
   text-decoration: none;
-  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: var(--shadow);
 }
 
-/* Упражнения */
+.lesson-card a:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* EXERCISE */
 .exercise {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  border-radius: 18px;
+  padding: 22px;
   margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.4s ease;
 }
 
-button {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #58cc02;
+.exercise strong {
+  font-size: 20px;
+}
+
+.exercise button {
+  margin-top: 12px;
+  background: var(--green);
   color: white;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
-input {
-  padding: 6px;
+.exercise button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.exercise input {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  width: 100%;
   font-size: 16px;
 }
 
-/* Адаптив */
+/* ANIMATIONS */
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
+  .lesson-card {
+    padding: 16px;
   }
 }
